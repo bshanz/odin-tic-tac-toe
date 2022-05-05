@@ -18,6 +18,8 @@ const boxNine = document.getElementById("box-nine");
 
 const restart = document.getElementById("restart");
 
+const p = document.getElementById("p");
+
 // add click event listener to box one (top left box)
 
 boxOne.addEventListener("click", (e) => {
@@ -25,7 +27,6 @@ boxOne.addEventListener("click", (e) => {
     checkPlayerTurn(e);
     changePlayerMessage();
     gameBoard[0] = boxOne.innerText;
-    console.log(`this is gameboard 0 ${gameBoard[0]}`);
   } else {
   }
   declareWinnerX();
@@ -38,7 +39,6 @@ boxTwo.addEventListener("click", (e) => {
     checkPlayerTurn(e);
     changePlayerMessage();
     gameBoard[1] = boxTwo.innerText;
-    console.log(`this is gameboard 1 ${gameBoard[1]}`);
   } else {
   }
   declareWinnerX();
@@ -51,7 +51,6 @@ boxThree.addEventListener("click", (e) => {
     checkPlayerTurn(e);
     changePlayerMessage();
     gameBoard[2] = boxThree.innerText;
-    console.log(`this is gameboard 2 ${gameBoard[2]}`);
   } else {
   }
   declareWinnerX();
@@ -64,7 +63,6 @@ boxFour.addEventListener("click", (e) => {
     checkPlayerTurn(e);
     changePlayerMessage();
     gameBoard[3] = boxFour.innerText;
-    console.log(`this is gameboard 3 ${gameBoard[3]}`);
   } else {
   }
   declareWinnerX();
@@ -77,7 +75,6 @@ boxFive.addEventListener("click", (e) => {
     checkPlayerTurn(e);
     changePlayerMessage();
     gameBoard[4] = boxFive.innerText;
-    console.log(`this is gameboard 4 ${gameBoard[4]}`);
   } else {
   }
   declareWinnerX();
@@ -90,7 +87,6 @@ boxSix.addEventListener("click", (e) => {
     checkPlayerTurn(e);
     changePlayerMessage();
     gameBoard[5] = boxSix.innerText;
-    console.log(`this is gameboard 5 ${gameBoard[5]}`);
   } else {
   }
   declareWinnerX();
@@ -103,7 +99,6 @@ boxSeven.addEventListener("click", (e) => {
     checkPlayerTurn(e);
     changePlayerMessage();
     gameBoard[6] = boxSeven.innerText;
-    console.log(`this is gameboard 6 ${gameBoard[6]}`);
   } else {
   }
   declareWinnerX();
@@ -116,7 +111,6 @@ boxEight.addEventListener("click", (e) => {
     checkPlayerTurn(e);
     changePlayerMessage();
     gameBoard[7] = boxEight.innerText;
-    console.log(`this is gameboard 7 ${gameBoard[7]}`);
   } else {
   }
   declareWinnerX();
@@ -129,7 +123,6 @@ boxNine.addEventListener("click", (e) => {
     checkPlayerTurn(e);
     changePlayerMessage();
     gameBoard[8] = boxNine.innerText;
-    console.log(`this is gameboard 8 ${gameBoard[8]}`);
   } else {
   }
   declareWinnerX();
@@ -142,10 +135,8 @@ boxNine.addEventListener("click", (e) => {
 const checkPlayerTurn = (e) => {
   if (playerTurn[0] === "playerX") {
     e.target.innerText = "X";
-    console.log(playerTurn[0]);
     playerTurn.pop();
     playerTurn.push("playerO");
-    console.log(playerTurn[0]);
   } else {
     e.target.innerText = "O";
     playerTurn.pop();
@@ -169,28 +160,31 @@ const changePlayerMessage = () => {
 const declareWinnerX = () => {
   // horizontal win logic
   if (gameBoard[0] === "X" && gameBoard[1] === "X" && gameBoard[2] === "X") {
-    alert(`Player X won!`);
+    changeFontSize();
     playerMessage.innerText = `Player X Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
+    modal.style.display = "block";
   } else if (
     gameBoard[3] === "X" &&
     gameBoard[4] === "X" &&
     gameBoard[5] === "X"
   ) {
-    alert(`Player X won!`);
+    changeFontSize();
     playerMessage.innerText = `Player X Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
+    modal.style.display = "block";
   } else if (
     gameBoard[6] === "X" &&
     gameBoard[7] === "X" &&
     gameBoard[8] === "X"
   ) {
-    alert(`Player X won!`);
+    changeFontSize();
     playerMessage.innerText = `Player X Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
+    modal.style.display = "block";
   }
   // vertical win logic
   else if (
@@ -198,28 +192,32 @@ const declareWinnerX = () => {
     gameBoard[3] === "X" &&
     gameBoard[6] === "X"
   ) {
-    alert(`Player X won!`);
+    changeFontSize();
     playerMessage.innerText = `Player X Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
+    modal.style.display = "block";
   } else if (
     gameBoard[1] === "X" &&
     gameBoard[4] === "X" &&
     gameBoard[7] === "X"
   ) {
-    alert(`Player X won!`);
+    changeFontSize();
     playerMessage.innerText = `Player X Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
+    modal.style.display = "block";
+
   } else if (
     gameBoard[2] === "X" &&
     gameBoard[5] === "X" &&
     gameBoard[8] === "X"
   ) {
-    alert(`Player X won!`);
+    changeFontSize();
     playerMessage.innerText = `Player X Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
+    modal.style.display = "block";
   }
   // diagonal win logic
   else if (
@@ -227,19 +225,21 @@ const declareWinnerX = () => {
     gameBoard[4] === "X" &&
     gameBoard[8] === "X"
   ) {
-    alert(`Player X won!`);
+    changeFontSize();
     playerMessage.innerText = `Player X Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
+    modal.style.display = "block";
   } else if (
     gameBoard[2] === "X" &&
     gameBoard[4] === "X" &&
     gameBoard[6] === "X"
   ) {
-    alert(`Player X won!`);
+    changeFontSize();
     playerMessage.innerText = `Player X Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
+    modal.style.display = "block";
   } else {
   }
 };
@@ -249,7 +249,7 @@ const declareWinnerX = () => {
 const declareWinnerO = () => {
   // horizontal win logic
   if (gameBoard[0] === "O" && gameBoard[1] === "O" && gameBoard[2] === "O") {
-    alert(`Player O won!`);
+    changeFontSize();
     playerMessage.innerText = `Player O Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
@@ -258,7 +258,7 @@ const declareWinnerO = () => {
     gameBoard[4] === "O" &&
     gameBoard[5] === "O"
   ) {
-    alert(`Player O won!`);
+    changeFontSize();
     playerMessage.innerText = `Player O Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
@@ -267,7 +267,7 @@ const declareWinnerO = () => {
     gameBoard[7] === "O" &&
     gameBoard[8] === "O"
   ) {
-    alert(`Player O won!`);
+    changeFontSize();
     playerMessage.innerText = `Player O Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
@@ -278,7 +278,7 @@ const declareWinnerO = () => {
     gameBoard[3] === "O" &&
     gameBoard[6] === "O"
   ) {
-    alert(`Player O won!`);
+    changeFontSize();
     playerMessage.innerText = `Player O Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
@@ -287,7 +287,7 @@ const declareWinnerO = () => {
     gameBoard[4] === "O" &&
     gameBoard[7] === "O"
   ) {
-    alert(`Player O won!`);
+    changeFontSize();
     playerMessage.innerText = `Player O Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
@@ -296,7 +296,7 @@ const declareWinnerO = () => {
     gameBoard[5] === "O" &&
     gameBoard[8] === "O"
   ) {
-    alert(`Player O won!`);
+    changeFontSize();
     playerMessage.innerText = `Player O Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
@@ -307,7 +307,7 @@ const declareWinnerO = () => {
     gameBoard[4] === "O" &&
     gameBoard[8] === "O"
   ) {
-    alert(`Player O won!`);
+    changeFontSize();
     playerMessage.innerText = `Player O Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
@@ -316,7 +316,7 @@ const declareWinnerO = () => {
     gameBoard[4] === "O" &&
     gameBoard[6] === "O"
   ) {
-    alert(`Player O won!`);
+    changeFontSize();
     playerMessage.innerText = `Player O Won! Click 'Restart' to play again.`;
     noMoreClicks();
     declareWinner = true;
@@ -360,11 +360,8 @@ function onlyString(array) {
   });
 }
 
-console.log(onlyString(gameBoard));
-
 const checkForTie = () => {
   if (declareWinner === false && onlyString(gameBoard) === true) {
-    alert("The game is over, it's a tie!");
     playerMessage.innerText = "It's a tie! Click 'Restart' to play again.";
     noMoreClicks();
   }
@@ -375,6 +372,8 @@ const checkForTie = () => {
 restart.addEventListener("click", (e) => {
   gameBoard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   playerTurn = ["playerX"];
+  playerMessage.classList.remove("rainbowText");
+  playerMessage.style.fontSize = "1.5rem";
   playerMessage.innerText = `It's Player X's turn!`;
   boxOne.innerText = "";
   boxTwo.innerText = "";
@@ -388,3 +387,13 @@ restart.addEventListener("click", (e) => {
   allClicks();
   declareWinner = false;
 });
+
+
+// change player message font size
+
+const changeFontSize = () => {
+    playerMessage.style.fontSize = "4vh";
+    playerMessage.classList.add("rainbowText");
+}
+
+
